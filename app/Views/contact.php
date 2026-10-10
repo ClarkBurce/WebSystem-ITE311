@@ -21,8 +21,8 @@
     <div class="container mt-5">
         <div class="p-5 bg-light border rounded-3 text-center">
             <h1 class="display-5 fw-bold text-primary">Contact</h1>
-            <p class="lead">Email: yourname@example.com</p>
-            <p class="lead">Phone: 0912-345-6789</p>
+            <p class="lead">Email: clarkpadernalburce@gmail.com</p>
+            <p class="lead">Phone: 09632643144</p>
         </div>
     </div>
 </body>

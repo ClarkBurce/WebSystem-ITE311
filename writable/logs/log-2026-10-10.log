@@ -1,0 +1,284 @@
+ERROR - 2026-10-10 09:11:54 --> MySQL server has gone away
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('CREATE TABLE `migrations` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`version` VARCHAR(255) NOT NULL,
+	`class` VARCHAR(255) NOT NULL,
+	`group` VARCHAR(255) NOT NULL,
+	`namespace` VARCHAR(255) NOT NULL,
+	`time` INT(11) NOT NULL,
+	`batch` INT(11) UNSIGNED NOT NULL,
+	CONSTRAINT `pk_migrations` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `migrations` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`version` VARCHAR(255) NOT NULL,
+	`class` VARCHAR(255) NOT NULL,
+	`group` VARCHAR(255) NOT NULL,
+	`namespace` VARCHAR(255) NOT NULL,
+	`time` INT(11) NOT NULL,
+	`batch` INT(11) UNSIGNED NOT NULL,
+	CONSTRAINT `pk_migrations` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 3 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `migrations` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`version` VARCHAR(255) NOT NULL,
+	`class` VARCHAR(255) NOT NULL,
+	`group` VARCHAR(255) NOT NULL,
+	`namespace` VARCHAR(255) NOT NULL,
+	`time` INT(11) NOT NULL,
+	`batch` INT(11) UNSIGNED NOT NULL,
+	CONSTRAINT `pk_migrations` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 4 SYSTEMPATH\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `migrations` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`version` VARCHAR(255) NOT NULL,
+	`class` VARCHAR(255) NOT NULL,
+	`group` VARCHAR(255) NOT NULL,
+	`namespace` VARCHAR(255) NOT NULL,
+	`time` INT(11) NOT NULL,
+	`batch` INT(11) UNSIGNED NOT NULL,
+	CONSTRAINT `pk_migrations` PRIMARY KEY(`id`)
+) DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci')
+ 5 SYSTEMPATH\Database\MigrationRunner.php(868): CodeIgniter\Database\Forge->createTable('migrations', true)
+ 6 SYSTEMPATH\Database\MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+ 7 SYSTEMPATH\Commands\Database\Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(null)
+ 8 SYSTEMPATH\CLI\SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+ 9 SYSTEMPATH\Commands\Database\Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+10 SYSTEMPATH\CLI\Commands.php(72): CodeIgniter\Commands\Database\Migrate->run([])
+11 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', [])
+12 SYSTEMPATH\Boot.php(444): CodeIgniter\CLI\Console->run()
+13 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+14 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+DEBUG - 2026-10-10 09:29:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-10-10 09:30:22 --> Table 'ite311-burce.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...])
+ 7 SYSTEMPATH\Validation\Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...], null, 'email')
+ 8 SYSTEMPATH\Validation\Validation.php(210): CodeIgniter\Validation\Validation->processRules('email', 'email', 'clarkpadernalburce@gmail.com', [...], [...], 'email')
+ 9 SYSTEMPATH\Controller.php(136): CodeIgniter\Validation\Validation->run()
+10 APPPATH\Controllers\AuthController.php(25): CodeIgniter\Controller->validate([...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\AuthController->storeRegister()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ITE311-Burce\\public\\index.php')
+CRITICAL - 2026-10-10 09:30:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'ite311-burce.users' doesn't exist
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 863.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...])
+ 4 SYSTEMPATH\Validation\Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...], null, 'email')
+ 5 SYSTEMPATH\Validation\Validation.php(210): CodeIgniter\Validation\Validation->processRules('email', 'email', 'clarkpadernalburce@gmail.com', [...], [...], 'email')
+ 6 SYSTEMPATH\Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 7 APPPATH\Controllers\AuthController.php(25): CodeIgniter\Controller->validate([...])
+ 8 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\AuthController->storeRegister()
+ 9 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ITE311-Burce\\public\\index.php')
+CRITICAL - 2026-10-10 09:30:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'ite311-burce.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...])
+ 6 SYSTEMPATH\Validation\Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...], null, 'email')
+ 7 SYSTEMPATH\Validation\Validation.php(210): CodeIgniter\Validation\Validation->processRules('email', 'email', 'clarkpadernalburce@gmail.com', [...], [...], 'email')
+ 8 SYSTEMPATH\Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 9 APPPATH\Controllers\AuthController.php(25): CodeIgniter\Controller->validate([...])
+10 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\AuthController->storeRegister()
+11 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+12 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ITE311-Burce\\public\\index.php')
+CRITICAL - 2026-10-10 09:30:22 --> [Caused by] mysqli_sql_exception: Table 'ite311-burce.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...])
+ 7 SYSTEMPATH\Validation\Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...], null, 'email')
+ 8 SYSTEMPATH\Validation\Validation.php(210): CodeIgniter\Validation\Validation->processRules('email', 'email', 'clarkpadernalburce@gmail.com', [...], [...], 'email')
+ 9 SYSTEMPATH\Controller.php(136): CodeIgniter\Validation\Validation->run()
+10 APPPATH\Controllers\AuthController.php(25): CodeIgniter\Controller->validate([...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\AuthController->storeRegister()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ITE311-Burce\\public\\index.php')
+DEBUG - 2026-10-10 09:32:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-10-10 09:32:26 --> Table 'ite311-burce.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...])
+ 7 SYSTEMPATH\Validation\Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...], null, 'email')
+ 8 SYSTEMPATH\Validation\Validation.php(210): CodeIgniter\Validation\Validation->processRules('email', 'email', 'clarkpadernalburce@gmail.com', [...], [...], 'email')
+ 9 SYSTEMPATH\Controller.php(136): CodeIgniter\Validation\Validation->run()
+10 APPPATH\Controllers\AuthController.php(25): CodeIgniter\Controller->validate([...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\AuthController->storeRegister()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ITE311-Burce\\public\\index.php')
+CRITICAL - 2026-10-10 09:32:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'ite311-burce.users' doesn't exist
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 863.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...])
+ 4 SYSTEMPATH\Validation\Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...], null, 'email')
+ 5 SYSTEMPATH\Validation\Validation.php(210): CodeIgniter\Validation\Validation->processRules('email', 'email', 'clarkpadernalburce@gmail.com', [...], [...], 'email')
+ 6 SYSTEMPATH\Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 7 APPPATH\Controllers\AuthController.php(25): CodeIgniter\Controller->validate([...])
+ 8 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\AuthController->storeRegister()
+ 9 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ITE311-Burce\\public\\index.php')
+CRITICAL - 2026-10-10 09:32:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'ite311-burce.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...])
+ 6 SYSTEMPATH\Validation\Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...], null, 'email')
+ 7 SYSTEMPATH\Validation\Validation.php(210): CodeIgniter\Validation\Validation->processRules('email', 'email', 'clarkpadernalburce@gmail.com', [...], [...], 'email')
+ 8 SYSTEMPATH\Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 9 APPPATH\Controllers\AuthController.php(25): CodeIgniter\Controller->validate([...])
+10 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\AuthController->storeRegister()
+11 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+12 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ITE311-Burce\\public\\index.php')
+CRITICAL - 2026-10-10 09:32:26 --> [Caused by] mysqli_sql_exception: Table 'ite311-burce.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `users`
+WHERE `email` = \'clarkpadernalburce@gmail.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...])
+ 7 SYSTEMPATH\Validation\Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique('clarkpadernalburce@gmail.com', 'users.email', [...], null, 'email')
+ 8 SYSTEMPATH\Validation\Validation.php(210): CodeIgniter\Validation\Validation->processRules('email', 'email', 'clarkpadernalburce@gmail.com', [...], [...], 'email')
+ 9 SYSTEMPATH\Controller.php(136): CodeIgniter\Validation\Validation->run()
+10 APPPATH\Controllers\AuthController.php(25): CodeIgniter\Controller->validate([...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\AuthController->storeRegister()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ITE311-Burce\\public\\index.php')
+DEBUG - 2026-10-10 09:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-10 09:37:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
