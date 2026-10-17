@@ -31,7 +31,7 @@ class AuthController extends BaseController
             'name'     => $this->request->getPost('name'),
             'email'    => $this->request->getPost('email'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'role'     => 'user',
+            'role'     => 'student', // always student; users cannot choose their own role
         ]);
 
         return redirect()->to('/login')->with('success', 'Registration successful. You may now log in.');
@@ -74,10 +74,27 @@ class AuthController extends BaseController
         return redirect()->back()->withInput()->with('errors', ['email' => 'Invalid email or password.']);
     }
 
-    // Protected page: only logged-in users can see it
+    // Unified dashboard: content depends on the logged-in user's role
     public function dashboard()
     {
-        return view('auth/dashboard');
+        $userModel = new UserModel();
+        $user = $userModel->find(session()->get('user_id'));
+
+        // Session points to a user that no longer exists: log out
+        if (! $user) {
+            session()->destroy();
+
+            return redirect()->to('/login');
+        }
+
+        // Only these roles are allowed to see role-specific content
+        $allowedRoles = ['admin', 'teacher', 'student'];
+        $role = in_array($user['role'], $allowedRoles, true) ? $user['role'] : 'none';
+
+        return view('auth/dashboard', [
+            'user' => $user,
+            'role' => $role,
+        ]);
     }
 
     // Logs the user out and clears the session
